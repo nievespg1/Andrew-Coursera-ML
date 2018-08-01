@@ -7,7 +7,7 @@ function [J, grad] = costFunction(theta, X, y)
 % Initialize some useful values
 m = length(y); % number of training examples
 
-% You need to return the following variables correctly 
+% You need to return the following variables correctly
 J = 0;
 grad = zeros(size(theta));
 
@@ -21,11 +21,12 @@ grad = zeros(size(theta));
 %
 
 
+z = X * theta; % (m x 2) * (2 x 1) = (1 x m)
+hypothesis = sigmoid(z);
+variance = (hypothesis - y).^2; % ( (m x 1) - (m x 1) ) ^2
+J =  (2*m)^-1  * sum(variance); % (1 x 1) * ( (1 x m) * (m x 2) = (1 x 2) );
 
-
-
-
-
+grad = variance; % To-Do: double check this!!
 
 % =============================================================
 
