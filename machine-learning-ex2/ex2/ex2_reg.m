@@ -70,7 +70,7 @@ lambda = 1;
 fprintf('Cost at initial theta (zeros): %f\n', cost);
 fprintf('Expected cost (approx): 0.693\n');
 fprintf('Gradient at initial theta (zeros) - first five values only:\n');
-fprintf(' %f \n', grad(1:5));
+%fprintf(' %f \n', grad(1:5));
 fprintf('Expected gradients (approx) - first five values only:\n');
 fprintf(' 0.0085\n 0.0188\n 0.0001\n 0.0503\n 0.0115\n');
 
@@ -133,4 +133,3 @@ p = predict(theta, X);
 
 fprintf('Train Accuracy: %f\n', mean(double(p == y)) * 100);
 fprintf('Expected accuracy (with lambda = 1): 83.1 (approx)\n');
-

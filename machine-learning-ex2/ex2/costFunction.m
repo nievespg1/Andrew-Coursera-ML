@@ -20,13 +20,11 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
-
-z = X * theta; % (m x 2) * (2 x 1) = (1 x m)
+z = X * theta;
 hypothesis = sigmoid(z);
-variance = (hypothesis - y).^2; % ( (m x 1) - (m x 1) ) ^2
-J =  (2*m)^-1  * sum(variance); % (1 x 1) * ( (1 x m) * (m x 2) = (1 x 2) );
-
-grad = variance; % To-Do: double check this!!
+variance = X' * (hypothesis - y);
+grad = variance./m;
+J = ((-y' * log(hypothesis)) - ((1-y)' * log(1-hypothesis)))/m;
 
 % =============================================================
 
