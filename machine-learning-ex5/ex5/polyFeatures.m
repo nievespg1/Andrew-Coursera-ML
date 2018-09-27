@@ -10,13 +10,27 @@ function [X_poly] = polyFeatures(X, p)
 X_poly = zeros(numel(X), p);
 
 % ====================== YOUR CODE HERE ======================
-% Instructions: Given a vector X, return a matrix X_poly where the p-th 
+% Instructions: Given a vector X, return a matrix X_poly where the p-th
 %               column of X contains the values of X to the p-th power.
 %
-% 
+%
 
+poli = zeros(1, p);
+X_tmp = X .* ones(1, p);
 
+for j = 1:p
+  poli(j) = j;
+end
 
+% X_poly = bsxfun(@power, X_tmp, poli);
+
+for i = 1:numel(X)
+  X_poly(i, :) = X_tmp(i) .^ poli;
+
+  % for j = 1:p
+  %   X_poly(i, j) = X(i)^j;
+  % end
+end
 
 
 
